@@ -23,8 +23,11 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | user           | references | null: false, foreign_key: true |
-| category       | string     | null: false                    |
-| active_hash    | integer    | null: false                    |
+| category_id    | integer    | null: false                    |
+| condition_id   | integer    | null: false                    |
+| cost_id        | integer    | null: false                    |
+| region_id      | integer    | null: false                    |
+| date_id        | integer    | null: false                    |
 | price          | integer    | null: false                    |
 | item_name      | string     | null: false                    |
 | description    | text       | null: false                    |
@@ -50,14 +53,14 @@
 
 ## address テーブル
 
-| Column       | Type    | Options     |
-| ------------ | ------- | ----------- |
-| postal       | integer | null: false |
-| active_hash  | integer | null: false |
-| cities       | string  | null: false |
-| house_number | string  | null: false |
-| building     | string  |             |
-| telephone    | integer | null: false |
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| postal        | string  | null: false |
+| prefecture_id | integer | null: false |
+| cities        | string  | null: false |
+| house_number  | string  | null: false |
+| building      | string  |             |
+| telephone     | string  | null: false |
 
 ### Association
 

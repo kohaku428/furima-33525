@@ -95,6 +95,11 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
       end
+      it 'emailは@が含まれていなければ登録できない' do
+        @user.email = 'a'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Email is invalid')
+      end
     end
   end
 end

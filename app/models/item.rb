@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :region
   belongs_to :day
 
-  validates :description, :items_name, :price, :image, presence: true
+  validates :description, :item_name, :price, :image, presence: true
   validates :category_id, :condition_id, :cost_id, :region_id,
   :day_id, numericality: { other_than: 1 }
 end

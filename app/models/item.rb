@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :cost
   belongs_to :region
   belongs_to :day
-
+  belongs_to :user
   validates :description, :item_name, :price, :image, presence: true
   validates :category_id, :condition_id, :cost_id, :region_id,
   :day_id, numericality: { other_than: 1 }

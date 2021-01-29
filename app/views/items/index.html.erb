@@ -142,7 +142,7 @@
             <%= item.item_name %>
           </h3>
           <div class='item-price'>
-            <span><%= item.price %>円<br><%= Cost.find(item.cost_id).cost %></span>
+            <span><%= item.price %>円<br><%= item.cost.cost %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>

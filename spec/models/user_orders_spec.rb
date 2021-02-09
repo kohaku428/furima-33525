@@ -31,12 +31,12 @@ RSpec.describe UserOrders, type: :model do
         @user_orders.valid?
         expect(@user_orders.errors.full_messages).to include('Region must be other than 1')
       end
-      it 'telephonが空だと保存できないこと' do
+      it 'telephoneが空だと保存できないこと' do
         @user_orders.telephone = ''
         @user_orders.valid?
         expect(@user_orders.errors.full_messages).to include("Telephone can't be blank")
       end
-      it 'telephonがハイフンを含まない正しい形式でないと保存できないこと' do
+      it 'telephoneがハイフンを含まない正しい形式でないと保存できないこと' do
         @user_orders.telephone = '000-0000-0000'
         @user_orders.valid?
         expect(@user_orders.errors.full_messages).to include('Telephone is invalid')
@@ -55,6 +55,16 @@ RSpec.describe UserOrders, type: :model do
         @user_orders.token = nil
         @user_orders.valid?
         expect(@user_orders.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'item_idが空では登録できないこと' do
+        @user_orders.item_id = nil
+        @user_orders.valid?
+        expect(@user_orders.errors.full_messages).to include("Item can't be blank")
+      end
+      it 'user_idが空では登録できないこと' do
+        @user_orders.user_id = nil
+        @user_orders.valid?
+        expect(@user_orders.errors.full_messages).to include("User can't be blank")
       end
     end
   end

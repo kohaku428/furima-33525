@@ -39,6 +39,11 @@ RSpec.describe UserOrders, type: :model do
         @user_orders.valid?
         expect(@user_orders.errors.full_messages).to include("Telephone can't be blank")
       end
+      it 'telephoneが12桁以上だと登録できないこと' do
+        @user_orders.telephone = '000000000000'
+        @user_orders.valid?
+        expect(@user_orders.errors.full_messages).to include("Telephone is invalid")
+      end
       it 'telephoneがハイフンを含まない正しい形式でないと保存できないこと' do
         @user_orders.telephone = '000-0000-0000'
         @user_orders.valid?
